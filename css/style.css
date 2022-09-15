@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+*{
+    background-color: rgb(255, 255, 255);
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-family: 'Lobster', cursive;
+    color: #9d8660;
+}
+
+
+h2{
+    text-align: center;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans';
+}
+ul>li{
+    width: fit-content;
+    margin: 0;
+    padding: 3px;
+    border-radius: 2%;
+}
+nav li:hover{
+    color: rgb(231, 99, 99);
+}
+a:visited{
+    color: rgb(90, 30, 81);
+}
+a:active {
+    color: red;
+}
+
+.mainnav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.qu{
+    display: flex;
+    justify-content: flex-end;
+}
+address::first-line{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: initial;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #603e31;
+    color: beige;
+    font-weight: 600;
+}
+footer p{
+    width: 100%;
+    text-align: center;
+}
+h3~p{
+    background-color: rgb(249, 243, 236);
+}
+a{
+    background-color: inherit;
+}
+footer a,li,address,p,ul,nav{
+    background: inherit;
+    color: inherit;
+    color: inherit;
+}
+footer a:visited{
+    color: darkgray;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.lefttext{
+ 
+    margin:0;
+    padding: 0;
+    width: 70%;  
+
+}
+.imgright{
+    width: 30%;
+    margin:0;
+    padding: 0;
+    margin-left: 10px;
+}
