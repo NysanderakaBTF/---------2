@@ -14,7 +14,7 @@
     <title>Шоколадная Фабрика Могилева</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/gg.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -23,45 +23,49 @@
 
 <body>
     
-    <header>
         <!--the main header-->
         <div class="title">
             <img src="images/sparrow.png" alt="Логотип" width="100">
             <h1 id="start">Шоколадная Фабрика Могилева им. Григория</h1>           
         </div>
-        <div>
+        <div class="navigate">
             <!--navigational list (make links in future)-->
             <nav>
                 <ul class="mainnav">
-                    <li><a href="/index.html">О нас</a></li>
+                    <li><a href="index.html">О нас</a></li>
                     <li class="list">
-                        Каталош продукции
+                        Каталог
                         <div class="items">
                             <a href="/animations.html">Шоколадные плитки</a>
-                            <a href="#">Мороженное</a>
+                            <a href="/griggallery.html">gridgallery</a>
                             <a href="#">Сиропы</a>
                             <a href="#">Другое</a>
                         </div>
                             
                     </li>
-                    <li class="list">Посетить фабрику
+                    <li class="list">Посетить
                         <div class="items">
                             <div class="link">
                                 <a href="/visit.html">Запись</a>
                             </div>
                             <div class="link">
-                                <a href="#">Группы</a>
+                                <a href="/goodvideo.html">Группы</a>
                             </div>
                             
                         </div>                        
                     </li>
-                    <li class="list">Купить наш шоколад
+                    <li class="list">Купить
                         <div class="items">
                             <a href="/gallery.html">Онлайн</a>
                             <a href="#">Фирменные магазины</a>
                             <a href="#">Магазины-партнеры</a>
                         </div>
-
+                    </li>
+                    <li>
+                        <a href="/cards.html">Карточки</a>
+                    </li>
+                    <li>
+                        <a href="/login.html">Логин</a>
                     </li>
                 </ul>
                 <div class="top-nav">
@@ -76,7 +80,7 @@
                         <li><a href="#">Сиропы</a></li>
                         <li><a href="#">Другое</a></li>
                         <li><a href="/visit.html">Запись на посещение</a></li>
-                        <li><a href="#">Группы</a></li>
+                        <li><a href="/goodvideo.html">Группы</a></li>
                         <li> <a href="/gallery.html">Онлайн магазин</a></li>
                         <li><a href="#">Фирменные магазины</a></li>
                         <li>   <a href="#">Магазины-партнеры</a></li>
@@ -86,49 +90,57 @@
             
         </div>
         <!--quote about chocolate-->
-        <div class="qu">
-           <blockquote cite="https://citaty.info/topic/shokolad">
-            <pre>
-                Всё остальное это просто еда.
-                А шоколад это шоколад.
-                      ----Патрик Скин Кэтлинг
-            </pre>
-            </blockquote> 
-        </div>
         
-    </header>
+
     <main>
-            <div class="b1 bu">
-                <a href="#">Button 1</a> 
-            </div>
-
-            <div class="b2 bu">
-                <a href="#">Button 2</a> 
-            </div>
-
-            <div class="b3 bu">
-                <a href="#">Button 3</a> 
-            </div>
-
-            <div class="b4 bu">
-                <a href="#">Button 4</a> 
-            </div>
-            <div class="notifcontainer">
-                <div class="notif">
-                    <div class="notif_button"></div>
-                        <div class="items">
-                            <a href="#">Hello</a>
-                            <a href="#">AAAA</a>
-                            <a href="#">AAAAA</a>
-                            <a href="#">AAAAA</a>
-                        </div>
-                </div>    
-            </div>
-
+    <div>
+        <img src="/images/ibm-svgrepo-com.svg" alt="">
+        <p>
+            I LOVE IBM 
+            <br>
+            THE BEST COMPONY IN THE WORLD
+        </p>
+    </div>
+    <div>
+        <img src="/images/computer-svgrepo-com (2).svg" alt="">
+        <p>
+            Voluptate nulla reprehenderit adipisicing eu ex.
+        </p>
+    </div>
+    <div>
+        <img src="/images/computer-svgrepo-com.svg" alt="">
+        <p>
+            Dolor eiusmod est labore sit quis culpa laborum occaecat laboris.
+        </p>
+    </div>
+    <div>
+        <img src="/images/ibmwatson-svgrepo-com.svg" alt="">
+        <p>
+            Elit eiusmod elit mollit sunt nostrud.
+        </p>
+    </div>
+    <div>
+        <img src="/images/computer-svgrepo-com (1).svg" alt="">
+        <p>
+            Voluptate enim ex fugiat elit.
+        </p>
+    </div>
+    <div>
+        <img src="/images/cpu-svgrepo-com.svg" alt="">
+        <p>
+            Occaecat incididunt magna sunt sit cillum enim incididunt.
+        </p>
+    </div>
+    <div>
+        <img src="/images/database-svgrepo-com.svg" alt="">
+        <p>
+            Anim aliqua id aliquip dolor elit labore irure ullamco.
+        </p>
+    </div>
     </main>
 <!--мини навигация и контактная информация-->
     <footer>
-        <nav>
+        <nav class="na">
             <ul>
                 <li> <a href="#start">Наверх</a></li>
                 <li> <a href="#whyitsgood">Польза шоколада</a></li>
@@ -137,11 +149,26 @@
                 <li> <a href="tel:+375222222222">По вопросам сотрудничества</a></li>
             </ul> 
         </nav>
-        <address id="contact">
+        <div class="text">
+            <p>Some text</p>
+            <p>
+                Laboris consequat irure aute aliquip commodo incididunt aliqua aliquip quis tempor aliquip eu. Dolore excepteur nostrud officia enim Lorem dolore eiusmod dolor. Magna ea tempor incididunt enim exercitation deserunt nulla consequat amet. Occaecat qui reprehenderit Lorem exercitation fugiat et sit dolor ex sunt ut.
+            </p>
+        </div>
+        <div class="social_buttons">
+            <a class="social_button" href="https://facebook.com"><img src="/images/icons8-facebook.svg"></a>
+            <a class="social_button" href="https://github.com"><img src="/images/icons8-github.svg"></a>
+            <a class="social_button" href="https://pinterest.com"><img src="/images/icons8-pinterest.svg"></a>
+            <a class="social_button" href="https://twitter.com"><img src="/images/icons8-twitter.svg"></a>
+        </div>
+        <address class="contact">
             Мы находимся по адресу:<br> 
             Республика Беларусь, город Могилев, Минское шоссе, д59
         </address>
-        <p>&copy; Магілёўская фабрыка шакаладу 2022<br>Разработчик и дизайнер: Григорий Резников</p>
+        <div class="cop">
+            <p >&copy; Магілёўская фабрыка шакаладу 2022<br>Разработчик и дизайнер: Григорий Резников</p>
+        </div>
+
     </footer>
 </body>
 

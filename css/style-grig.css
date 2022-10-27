@@ -1,0 +1,12 @@
+body{
+    display: grid;
+    grid-template-columns: [one] 30% [two] auto [tree] 30%;
+    grid-template-rows: [one] 30px [two] 10% [tree] 100vh [four] 10%;
+}
+.title{
+    grid-column-start: one;
+    grid-column-end: tree;
+    grid-row-start: one;
+    grid-row-end: one;
+    background-color: blue;
+}

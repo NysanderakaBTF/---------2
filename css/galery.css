@@ -11,6 +11,7 @@
     padding: 0;
     display: flex;
     align-items: stretch;
+    justify-items: stretch;
     justify-content: space-evenly;
     position: relative;
     transition: all 0.48s ease;
@@ -20,6 +21,7 @@ img {
     max-height: 100%;
     border-radius: 10px;
     z-index: 0;
+
 }
 .image p{
     background-color: transparent;
@@ -58,12 +60,46 @@ img {
     .image{
         width: 45%;
     }
+    .image1{
+      width: 45%;
+    }
 }
 @media  (max-width: 550px) {
     .image{
         width: 100%;
     }
+    .image1{
+      width: 100%;
+    }
     .gallery{
         row-gap: 32px;
     }
 }
+.image1 {
+
+    background: rgb(178, 114, 61,0);
+    transition: background 0.5s ease-in-out ;
+    position: relative;
+    border-radius: 20px;
+  }
+
+    .image1>img {
+      width: 180px;
+      height: 200px;
+      transition: transform .8s ease-in-out;
+  }
+
+    .image1>img:hover {
+      transform: translateY(-100px);
+  }
+  .image1:hover{
+    background: rgb(178, 114, 61,1);
+  }
+    .info1 {
+      display: none;
+      margin: 0;
+  }
+
+    .image1:hover .info1{
+      display: block;
+  }

@@ -1,20 +1,228 @@
-.b1{
-    width: 10%;
-    height: 3%;
+main{
+    display: flex;
+    margin-bottom: 90px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+.notifcontainer{
+    width: 100%;
+}
+.button_container{
+     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.bu{
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border: 2px solid #1b581e;
+    overflow: hidden;
+    transition: 1s all ease;
+}
+.b1, .b1 a {
+    padding: 14px 60px;
+    max-width: 100px;
     background-color: antiquewhite;
     color: darkred;
     border: none;  
+    display: flex;
+    justify-content: center;
+}
+
+.b1 a{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-style: normal;
 }
 .b1::before, .b1::after{
-    z-index: 100;
-    display: inline;
     position: absolute;
-    width: 20px;
-    height: 5px;
+    width: 0px;
+    height: 2px;
+    content: '';
     background-color: brown;
     border:none;
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.b1::after{
+    margin-top: -6.6%;
+}
+.b1::before{
+    margin-top: 19.8%;
 }
 .b1:hover::before, .b1:hover::after{
     width: 100%;
+}
+
+
+.b2 a{
+    color: rgb(43, 20, 20);
+}
+.b2{
+    position: relative;
+    display: block;
+   
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid #1b581e;
+    padding: 14px 60px;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
+  .b2::before{
+    background:  #1b581e;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+  }
+.b2::before{
+    width: 120%;
+    height: 0%;
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+  .b2:hover::before{
+    height: 380%;
+  }
+.b2:hover a{
+    color:white;
+}
+
+
+
+.b3 a{
+    color: rgb(43, 20, 20);
+}
+.b3{
+    position: relative;
+    display: block;
+   
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid #1b581e;
+    padding: 14px 60px;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
+  .b3::before{
+    background:  #1b581e;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+  }
+.b3::before{
+    width: 120%;
+    height: 0%;
+    transform: translate(-50%,-50%) rotate(90deg);
+  }
+  .b3:hover::before{
+    height: 380%;
+  }
+.b3:hover a{
+    color:white;
+}
+
+
+.b4 a{
+    color: #81af83;
+    text-decoration: none;
+    z-index: 1000;
+    font-size: 16px;
+    transition: font-size 1s ease-in-out;
+}
+.b4{
+    position: relative;
+    display: block;
+    font-size: 14px;
+    font-weight: 1000;
+    font-size: large;
+    color: #81af83;
+    text-decoration: none;
+    border: 2px solid #81af83;
+    padding: 14px 60px;
+    overflow: hidden;
+    transition: 1s all ease;
+  
+}
+  .b4::before{
+    background:  #81af83;
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    width: 1000%;
+    height: 500%;
+    margin-top: 7%;
+    margin-left: -90.9%;
+  }
+.b4:hover a{
+    color:rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.notif_button {
+    background-color: #774caf;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+
+}
+
+.notif {
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.items {
+    display: block;
+    height: 0px;
+    opacity: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    position: absolute;
+    top: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+   visibility: hidden;
+    z-index: 10;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.items a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 10;
+}
+
+.items a:hover {
+    background-color: #774caf; 
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+.notif:hover .items {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+    height: 20px;
+}
+
+.notif:hover .notif_button {
+    background-color: #774caf;
 }
