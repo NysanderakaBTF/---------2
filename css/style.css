@@ -172,7 +172,9 @@ footer a:visited{
     footer .text, .contact{
         grid-column: 3 / span 2;
     }
-
+    .title{
+        font-size: smaller;
+    }
 }
 
 @media screen and (max-width: 768px){
