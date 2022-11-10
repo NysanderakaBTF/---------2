@@ -65,6 +65,11 @@
                     <p>Ещё нет аккаунта <a href="#" id="s">Зарегистрироваться</a></p>
                     <p><a href="/index.html">Назад</a></p>
                 </div>
+
+                <div class="inputBx">
+                    <input type="button" id="acc_func" value="Аккумулятор" style="color: white;">
+                    <div id="result_acc"></div>
+                </div>
             </div>
     
         </div>
@@ -226,4 +231,21 @@
     document.getElementById("can").addEventListener('mousemove', f, false);
     document.getElementById("can").addEventListener("mouseenter", f, false);
     document.getElementById("can").addEventListener("mouseleave", f, false);
+
+    function Accumulator(startingValue) {
+        this.value = startingValue
+
+        this.read = function () {
+            let val = prompt();
+            this.value += parseInt(val);
+        }
+    }
+
+    let acc = new Accumulator(0);
+
+    document.getElementById("acc_func").addEventListener("click", function (){
+       acc.read();
+        document.getElementById("result_acc").innerText = acc.value;
+
+    });
 </script>

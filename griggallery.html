@@ -98,9 +98,8 @@
            <img src="/images/ibm-svgrepo-com.svg" alt=""> 
         </div>
         
-        <p>
+        <p class="opi">
             I LOVE IBM 
-            <br>
             THE BEST COMPONY IN THE WORLD
         </p>
     </div>
@@ -109,7 +108,7 @@
             <img src="/images/computer-svgrepo-com (2).svg" alt="">
         </div>
         
-        <p>
+        <p class="opi">
             Voluptate nulla reprehenderit adipisicing eu ex.
         </p>
     </div>
@@ -118,7 +117,7 @@
             <img src="/images/computer-svgrepo-com.svg" alt="">
         </div>
         
-        <p>
+        <p class="opi">
             Dolor eiusmod est labore sit quis culpa laborum occaecat laboris.
         </p>
     </div>
@@ -127,7 +126,7 @@
             <img src="/images/ibmwatson-svgrepo-com.svg" alt="">
         </div>
         
-        <p>
+        <p class="opi">
             Elit eiusmod elit mollit sunt nostrud.
         </p>
     </div>
@@ -136,7 +135,7 @@
              <img src="/images/computer-svgrepo-com (1).svg" alt="">
         </div>
        
-        <p>
+        <p class="opi">
             Voluptate enim ex fugiat elit.
         </p>
     </div>
@@ -145,7 +144,7 @@
             <img src="/images/cpu-svgrepo-com.svg" alt="">
         </div>
         
-        <p>
+        <p class="opi">
             Occaecat incididunt magna sunt sit cillum enim incididunt.
         </p>
     </div>
@@ -154,10 +153,10 @@
             <img src="/images/database-svgrepo-com.svg" alt="">
         </div>
         
-        <p>
+        <p class="opi">
             Anim aliqua id aliquip dolor elit labore irure ullamco.
         </p>
-    </div>
+    </div>str
     </main>
 <!--мини навигация и контактная информация-->
     <footer>
@@ -194,3 +193,16 @@
 </body>
 
 </html>
+<script>
+    function truncate(str, maxlength){
+    if (str.length > maxlength){
+        return str.slice(0, maxlength-3) + "...";
+    }
+    return str
+}
+
+cards = document.getElementsByClassName("opi");
+for (let card in cards){
+    cards[card].innerText = truncate(cards[card].innerText, 30);
+}
+</script>
