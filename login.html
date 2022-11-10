@@ -46,8 +46,19 @@
                             <i class="fas fa-key"></i>
                         </div>
                         <div id="t1" style="color: white;"></div>
+                        
+                        <div id="capcha" class="inputBx" style="border-radius: 10px; width: 80%; height: 30px; background-color: cadetblue;">
+                        
+                        </div>
                         <div class="inputBx">
-                            <input id="su" type="button" value="Войти">
+                            <input type="text" id="capc" placeholder="your capcha">
+                        </div>
+                        <div id="checkcap" class="checkcap" style=" margin-bottom: 10px; text-align: center; border-radius: 15px; width: 50%; height: 30px; background-color: cadetblue;">
+                            Gen capcha
+                        </div>
+
+                        <div class="inputBx">
+                            <input id="su" type="submit" value="Войти" disabled>
                         </div>
                     </form>
                     <p>Забыли пароль? <a href="#">Перейти</a></p>
@@ -81,6 +92,7 @@
         height: 100%;
         position: fixed;
         z-index: 0;
+        margin: 0;
         
     }
     .like{
@@ -98,6 +110,8 @@
 </style>
 
 <script>
+    var correct = false;
+    var trycount = 0;
     document.getElementById("s").addEventListener("click", function(f){
         let ma = document.getElementById("mail").value;
         let pass = document.getElementById("password-input").value;
@@ -113,28 +127,69 @@
         }
     }
     );
-
-    document.getElementById("su").addEventListener("click", function(f){
-        let ma = prompt("Enter login");
-        if(ma==null){
-            alert("Canselled");
+    var a,b,c;
+    document.getElementById("checkcap").addEventListener("click", function(e){
+        
+        if(trycount == 0){
+            document.getElementById("capcha").innerText=random(10);
+            document.getElementById("checkcap").innerText="Check capcha";
+            trycount++;
         }
         else{
-            if(ma == "Админ"){
-                var pass = prompt("Enter password");
-                if(pass == null){
-                    alert("Canselled");
-                }else if(pass == "Я главный"){
-                    alert("Здравствуйте");
-                }else{
-                    alert("Wrong password");
-                }
+            let ans = document.getElementById("capc").value.toString();
+            if(ans.isEmpty || ans==""){
+                alert("Solve capcha");
             }else{
-                alert("Я вас не знаю");
+                if(trycount==1){
+                    if(ans == document.getElementById("capcha").innerText){
+                        correct = true;
+                        alert("Nice");
+                        document.getElementById("checkcap").setAttribute("disabled", true);
+                        document.getElementById("su").removeAttribute("disabled");
+                        document.getElementById("capcha").innerText=" ";
+                        trycount = 0;
+                    }else{
+                        alert("Incorrect");
+                        a = Math.ceil(Math.random()*(100-10)+10); b=Math.ceil(Math.random()*(50-1) +1);
+                        c = a+b;
+                        document.getElementById("capcha").innerText=a.toString() + " + " + b.toString();
+                        trycount++;
+                    }
+                }else if(trycount>1){
+                    c=a+b;
+                    console.log(c);
+                    if(ans == c){
+                        correct = true;
+                        alert("Nice");
+                        document.getElementById("checkcap").setAttribute("disabled", true);
+                        document.getElementById("su").removeAttribute("disabled");
+                        document.getElementById("capcha").innerText=" ";
+                        trycount = 0;
+                    }else{
+                        alert("Incorrect");
+                        a = Math.ceil(Math.random()*(100-10)+10); b=Math.ceil(Math.random()*(50-1) +1);
+                        c = a+b;
+                        document.getElementById("capcha").innerText=a.toString() + " + " + b.toString();
+                        c=a+b;
+                        trycount++;
+                    }
+                }
+                
             }
         }
     }
+    
     );
+
+    function random(len){
+        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let str = '';
+        for (let i = 0; i < len; i++) {
+            str += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return str;
+    };
+   
     var coutn = 0;
     
     var can = document.getElementById("can");
@@ -158,9 +213,11 @@
     var pry = 0;
     function f(ev){
         if(document.getElementById("li").style.backgroundColor=="red"){
+            if(prx != 0 && pry != 0){
             c.moveTo(prx,pry);
             c.lineTo(ev.clientX,ev.clientY);
             c.stroke();
+            }
             console.log(prx, pry);
             prx=ev.clientX;
             pry=ev.clientY;
