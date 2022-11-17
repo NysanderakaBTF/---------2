@@ -23,107 +23,166 @@
 
 <body>
     
-    <header>
-        <!--the main header-->
-        <div class="title">
-            <img src="images/sparrow.png" alt="Логотип" width="100">
-            <h1 id="start">Шоколадная Фабрика Могилева им. Григория</h1>           
-        </div>
-        <div>
-            <!--navigational list (make links in future)-->
-            <nav>
-                <ul class="mainnav">
-                    <li><a href="/index.html">О нас</a></li>
-                    <li class="list">
-                        Каталош продукции
-                        <div class="items">
-                            <a href="/animations.html">Шоколадные плитки</a>
-                            <a href="#">Мороженное</a>
-                            <a href="#">Сиропы</a>
-                            <a href="#">Другое</a>
-                        </div>
-                            
-                    </li>
-                    <li class="list">Посетить фабрику
-                        <div class="items">
-                            <div class="link">
-                                <a href="/visit.html">Запись</a>
-                            </div>
-                            <div class="link">
-                                <a href="#">Группы</a>
-                            </div>
-                            
-                        </div>                        
-                    </li>
-                    <li class="list">Купить наш шоколад
-                        <div class="items">
-                            <a href="/gallery.html">Онлайн</a>
-                            <a href="#">Фирменные магазины</a>
-                            <a href="#">Магазины-партнеры</a>
-                        </div>
-
-                    </li>
-                </ul>
-                <div class="top-nav">
-
-                    <input id="menu-toggle" type="checkbox" />
-                    <label class='menu-button-container' for="menu-toggle">
-                        <div class='menu-button'></div>
-                    </label>
-                    <ul class="menu">
-                        <li class="firstt"><a href="#">Шоколадные плитки</a></li>
-                        <li><a href="#">Мороженное</a></li>
-                        <li><a href="#">Сиропы</a></li>
-                        <li><a href="#">Другое</a></li>
-                        <li><a href="/visit.html">Запись на посещение</a></li>
-                        <li><a href="#">Группы</a></li>
-                        <li> <a href="/gallery.html">Онлайн магазин</a></li>
-                        <li><a href="#">Фирменные магазины</a></li>
-                        <li>   <a href="#">Магазины-партнеры</a></li>
-                    </ul>
-                </div>
-            </nav>
-            
-        </div>
-        <!--quote about chocolate-->
-        <div class="qu">
-           <blockquote cite="https://citaty.info/topic/shokolad">
-            <pre>
-                Всё остальное это просто еда.
-                А шоколад это шоколад.
-                      ----Патрик Скин Кэтлинг
-            </pre>
-            </blockquote> 
-        </div>
-        
-    </header>
     <main>
-            <div class="b1 bu">
-                <a href="#">Button 1</a> 
+            <div id="b1" class="b1 bu">
+                <a href="#">Delete 1 elem</a> 
             </div>
 
-            <div class="b2 bu">
-                <a href="#">Button 2</a> 
+            <div id="b2" class="b2 bu">
+                <a href="#">Change elem</a> 
             </div>
 
-            <div class="b3 bu">
-                <a href="#">Button 3</a> 
+            <div id="b3" class="b3 bu">
+                <a href="#">task 2</a> 
             </div>
 
             <div class="b4 bu">
                 <a href="#">Button 4</a> 
             </div>
             <div class="notifcontainer">
-                <div class="notif">
-                    <div class="notif_button"></div>
-                        <div class="items">
+                <div  class="notif">
+                    <div id="cir" class="notif_button"></div>
+                        <div id="nl" class="items">
                             <a href="#">Hello</a>
-                            <a href="#">AAAA</a>
-                            <a href="#">AAAAA</a>
-                            <a href="#">AAAAA</a>
                         </div>
                 </div>    
             </div>
+
+            <div class="cart" id="cart">
+            </div>
+            <div class="cart">
+                <div id="s"> </div>
+                <div id="r"></div>
+                <div id="qq">Sorted1: </div>
+                <div id="qqq">Sorted2: </div>
+            </div>
+            <script>
+                let nc = 1;
+                function add_notif(kol){
+                    document.getElementById("cir").innerText=kol;
+                    document.getElementById("nl").innerHTML+=`<a href="#">msg ${kol}</a>`;
+                }
+
+                let msg = setInterval(()=>{add_notif(nc); nc++;}, 3000);
+                document.getElementById("cir").addEventListener('click',(ev)=>{
+                    clearInterval(msg);
+                    setTimeout(()=>{msg = setInterval(()=>{add_notif(nc); nc++;}, 3000)},10000);
+                });
+                let arr=[
+                    {
+                        name: "AAA",
+                        description: " HUGIUPgpui minim ipsum commodo.",
+                        price: 14
+                    },
+                    {
+                        name: "BBB",
+                        description: " HUGIUPgpui minim ipsum commodo.",
+                        price: 14
+                    },
+                    {
+                        name: "CCC",
+                        description: " HUGIUPgpui minim ipsum commodo.",
+                        price: 14
+                    },
+                    {
+                        name: "DDD",
+                        description: " HUGIUPgpui minim ipsum commodo.",
+                        price: 14
+                    },
+                    {
+                        name: "EEE",
+                        description: " HUGIUPgpui minim ipsum commodo.",
+                        price: 14
+                    }
+                ]
+                function redr(){
+                    s=" "
+                    for (let i = 0; i < arr.length; i++) {
+                        s+=`<div class="elem">
+                                <p>Name: ${arr[i].name}</p>
+                                <p>Description: ${arr[i].description}</p>
+                                <p>Price: ${arr[i].price}</p>                            
+                            </div>
+                            `                    
+                    }
+                    document.getElementById("cart").innerHTML=s;
+                }
+                redr();
+                document.getElementById("b1").addEventListener('click',(ev)=>{
+                    arr.shift();
+                    redr();
+                })
+                document.getElementById("b2").addEventListener('click',(ev)=>{
+                    let a = Math.floor(Math.random()*(arr.length));
+                    let b = Math.floor(Math.random()*(arr.length));
+                    let c = arr[b];
+                    arr[b]=arr[a]
+                    arr[a]=c;
+                    redr();
+                })
+
+
+
+                function flit(arra, a, b){
+                    if(Array.isArray(arra)){
+                        return arra.filter((el) => {return el >= a && el <=b;});
+                    }
+                }
+                let ar = new Array();
+                document.getElementById("b3").addEventListener('click',(ev)=>{
+                    let a = Math.ceil(Math.random()*20)+4;
+                    let s = " ";
+                    for (let i = 0; i < a; i++) {
+                        ar.push(Math.ceil(Math.random()*10)); 
+                    }
+                    
+                    let ne = flit(ar,1,5);
+                    
+                    ar.forEach(element => {
+                      s=s + element + " ";
+                    });
+                    document.getElementById("s").innerText=s;
+                    s = " ";
+                    ne.forEach(element => {
+                        s=s + element + " ";
+                    });
+                    document.getElementById("r").innerText=s; 
+
+                    // sort
+                    s=" "
+                    ar.sort((a,b)=>{return a<b ? -1 : a==b ? 0 : 1;});
+                    ar.forEach(element => {
+                      s=s + element + " ";
+                    });
+                    document.getElementById("qq").innerText+=s;
+
+                    s=" "
+                    ar.sort((a,b)=>{return a<b ? 1 : a==b ? 0 : -1;});
+                    ar.forEach(element => {
+                      s=s + element + " ";
+                    });
+                    document.getElementById("qqq").innerText+=s;
+
+                });
+
+            </script>
+            <style>
+                .cart{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                }
+                .elem{
+                    border-style: dotted;
+                    border-width: 2px;
+                    border-color: blueviolet;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+            </style>
 
     </main>
 <!--мини навигация и контактная информация-->
