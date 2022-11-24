@@ -24,11 +24,11 @@
 <body>
     
     <main>
-            <div id="b1" class="b1 bu">
+            <div id="delete_button" class="delete_button bu">
                 <a href="#">Delete 1 elem</a> 
             </div>
 
-            <div id="b2" class="b2 bu">
+            <div id="shuffle_button" class="shuffle_button bu">
                 <a href="#">Change elem</a> 
             </div>
 
@@ -53,8 +53,8 @@
             <div class="cart">
                 <div id="s"> </div>
                 <div id="r"></div>
-                <div id="qq">Sorted1: </div>
-                <div id="qqq">Sorted2: </div>
+                <div id="sorting_met1">Sorted1: </div>
+                <div id="sorting_met2">Sorted2: </div>
             </div>
             <script>
                 let nc = 1;
@@ -108,11 +108,11 @@
                     document.getElementById("cart").innerHTML=s;
                 }
                 redr();
-                document.getElementById("b1").addEventListener('click',(ev)=>{
+                document.getElementById("delete_button").addEventListener('click',(ev)=>{
                     arr.shift();
                     redr();
                 })
-                document.getElementById("b2").addEventListener('click',(ev)=>{
+                document.getElementById("shuffle_button").addEventListener('click',(ev)=>{
                     let a = Math.floor(Math.random()*(arr.length));
                     let b = Math.floor(Math.random()*(arr.length));
                     let c = arr[b];
@@ -128,17 +128,17 @@
                         return arra.filter((el) => {return el >= a && el <=b;});
                     }
                 }
-                let ar = new Array();
+                let number_array = new Array();
                 document.getElementById("b3").addEventListener('click',(ev)=>{
                     let a = Math.ceil(Math.random()*20)+4;
                     let s = " ";
                     for (let i = 0; i < a; i++) {
-                        ar.push(Math.ceil(Math.random()*10)); 
+                        number_array.push(Math.ceil(Math.random()*10)); 
                     }
                     
-                    let ne = flit(ar,1,5);
+                    let ne = flit(number_array,1,5);
                     
-                    ar.forEach(element => {
+                    number_array.forEach(element => {
                       s=s + element + " ";
                     });
                     document.getElementById("s").innerText=s;
@@ -150,18 +150,18 @@
 
                     // sort
                     s=" "
-                    ar.sort((a,b)=>{return a<b ? -1 : a==b ? 0 : 1;});
-                    ar.forEach(element => {
+                    number_array.sort((a,b)=>{return a<b ? -1 : a==b ? 0 : 1;});
+                    number_array.forEach(element => {
                       s=s + element + " ";
                     });
-                    document.getElementById("qq").innerText+=s;
+                    document.getElementById("sorting_met1").innerText+=s;
 
                     s=" "
-                    ar.sort((a,b)=>{return a<b ? 1 : a==b ? 0 : -1;});
-                    ar.forEach(element => {
+                    number_array.sort((a,b)=>{return a<b ? 1 : a==b ? 0 : -1;});
+                    number_array.forEach(element => {
                       s=s + element + " ";
                     });
-                    document.getElementById("qqq").innerText+=s;
+                    document.getElementById("sorting_met2").innerText+=s;
 
                 });
 
