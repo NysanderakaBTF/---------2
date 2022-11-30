@@ -43,11 +43,28 @@
                 <div  class="notif">
                     <div id="cir" class="notif_button"></div>
                         <div id="nl" class="items">
-                            <a href="#">Hello</a>
+                            <style>
+                                .close {
+                                    position: absolute;
+                                    font-size: 16px;
+                                    top: 0;
+                                    color: rgb(255, 255, 255);
+                                    right: 0;
+                                    display: block;
+                                    width: 24px;
+                                    height: 24px;
+                                    border: none;
+                                    background: transparent;
+                                    cursor: pointer;
+                                }
+                            </style>
+                        
                         </div>
                 </div>    
             </div>
+            <script>
 
+            </script>
             <div class="cart" id="cart">
             </div>
             <div class="cart">
@@ -60,7 +77,7 @@
                 let nc = 1;
                 function add_notif(kol){
                     document.getElementById("cir").innerText=kol;
-                    document.getElementById("nl").innerHTML+=`<a href="#">msg ${kol}</a>`;
+                    document.getElementById("nl").innerHTML+=`<a href="#">msg ${kol} <div class="close">X</div> </a>`;
                 }
 
                 let msg = setInterval(()=>{add_notif(nc); nc++;}, 3000);
@@ -68,6 +85,22 @@
                     clearInterval(msg);
                     setTimeout(()=>{msg = setInterval(()=>{add_notif(nc); nc++;}, 3000)},10000);
                 });
+                let notif = document.getElementById("nl");
+                notif.onclick = function (ev){
+                    let target = ev.target
+                    if (target.className ==="close"){
+                        target.parentNode.remove()
+                        document.getElementById("cir").innerText=toString(--nc);
+                    }
+                }
+
+
+
+
+
+
+
+
                 let arr=[
                     {
                         name: "AAA",

@@ -134,7 +134,7 @@
             Elit eiusmod elit mollit sunt nostrud.
         </p>
     </div>
-    <div class="card">
+    <div id="alla" class="card">
         <div class="imga">
              <img src="/images/computer-svgrepo-com (1).svg" alt="">
         </div>
@@ -160,20 +160,31 @@
         <p class="opi">
             Anim aliqua id aliquip dolor elit labore irure ullamco.
         </p>
+
         <script>
-            //1
-            document.linkColor="red";
+            ////1
+            let selector = 'a[href*="http"]';
+            let links = document.querySelectorAll(selector);   
+
+            links.forEach(link => link.style.color = 'red');
         </script>
+
     </div>str
 
     <button onclick="qwq()">Butt</button>
+    <div id="circle">
+        <button id="mmmm" onclick="uhhhhhh()">Start t4</button>    
+    </div>
+    
     <ul id="ul">
 
     </ul>
 
     </main>
     <script>
+        ////2
         let ll = document.getElementById("ul");
+        
         function qwq(){
             let t = "";
             while (true){
@@ -187,6 +198,7 @@
                 }
             }   
         }
+        ////3
         function show_notification(a){
             let q = document.createElement('div');
             q.className="notificaton";
@@ -201,6 +213,16 @@
             
         }
         show_notification("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //4
+        function uhhhhhh(){
+            let chel = document.getElementById("mmmm");
+            let field = document.getElementById("circle");
+            field.style.position="fixed";
+            field.style.left=Math.round(window.innerWidth / 2 - field.offsetWidth / 2) + 'px';
+            field.style.top=Math.round(window.innerHeight / 2 - field.offsetHeight / 2) + 'px';
+            chel.style.left=Math.round(field.clientWidth / 2 - chel.offsetWidth / 2) + 'px';
+            chel.style.top= Math.round(field.clientHeight / 2 - chel.offsetHeight / 2) + 'px';
+        }
     </script>
 <!--мини навигация и контактная информация-->
     <footer>
@@ -238,3 +260,17 @@
 
 </html>
 
+<style>
+
+    #circle {
+        width: 300px;
+        height: 300px;
+        border: 2px solid black;
+        background-color: white;
+        position: relative;
+    }
+    #mmmm{
+        position: absolute;
+    }
+
+</style>
