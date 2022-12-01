@@ -14,7 +14,6 @@
     <title>Шоколадная Фабрика Могилева</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gg.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -93,6 +92,57 @@
         
 
     <main>
+        <div class="t1">
+            <h3>task 2</h3>
+            <div id="viever" class="images">
+
+            </div>
+            <div class="imglist" id="mini">
+                              
+            </div>
+        </div>
+        <style>
+            .images{
+                width: 400px;
+                height: 300px;
+                background-size: cover;
+            }
+            .t1{
+                display: flex;   width: 100%;  flex-direction: column; margin: 0 auto;
+                 align-items: center;
+            }
+            t1 h3{ width: 100%; }
+            .imglist{
+                display: flex;
+                flex-direction: row;
+                max-height: 100px;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .imglist img{height: 100px; padding: 10px;}
+        </style>
+        <script>
+
+            //2
+            let imakes =["/images/11.jpg","/images/12.jpg","/images/13.jpg","/images/14.jpg","/images/15.jpg","/images/29.jpg",
+            "/images/19.jpg","/images/18.jpg"];
+            let prev = document.getElementById("mini");
+            imakes.forEach(element => {
+                let el = document.createElement('img');
+                el.className="mi";
+                el.src=element;
+                prev.appendChild(el);
+            });
+            function disp(ev){
+ 
+                let tar = ev.target;
+                if(tar.className=="mi"){
+                    document.getElementById("viever").style.backgroundImage=`url('${tar.src}')`;
+                }
+            }
+            let mmmm = document.querySelectorAll(".mi");
+            mmmm.forEach(elem => elem.addEventListener('click',disp));
+        </script>
 
 
     </main>
@@ -129,8 +179,10 @@
         return false
     }
     let aas = document.querySelectorAll("a");
-    console.log(aas);
     aas.forEach(elem => elem.addEventListener('click',task1));
+
+    //2
+
 
 
 

@@ -14,51 +14,12 @@ h2{
     text-align: center;
 }
 body{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     font-family: 'Open Sans';
     max-width: 1500px;
     margin: 0 auto !important; 
     background-color: rgb(255, 246, 237);
-}
-@media screen and (min-width: 1001px) {
-    body{
-        grid-template-columns: 10% auto 20%;
-        grid-template-rows: 8vh auto auto auto ;
-        
-    }
-}
-
-.title{
-    grid-row: span 1;
-    grid-column: span 3;
-}
-.navigate{
-   grid-column: 2 / span 1;
-}
-footer{
-    grid-column: span 3;
-    grid-row-start: 4;
-}
-.side{
-    grid-row: 2 / span 2;
-}
-main{
-    grid-row-start: 3;
-    grid-column-start: 2;
-}
-.ads{
-    display: flex;
-    flex-direction: column;
-    grid-column: 3;
-    grid-row: 2 / span 2;
-    align-content: stretch;
-    text-align: center;
-
- }
-
-.ads img{
-    width: 100%;
-    height: auto;
 }
 ul>li{
     width: fit-content;
@@ -92,9 +53,7 @@ address::first-line{
     font-style: initial;
 }
 footer{
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: auto auto;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -105,14 +64,6 @@ footer{
 footer p{
     width: 100%;
     text-align: center;
-}
-.cop p{
-    margin: 0;
-    padding: 0;
-}
-.cop{
-    grid-column: 1 / span 4;
-    height: auto;
 }
 h3~p{
     background-color: rgb(248, 234, 219);
@@ -132,101 +83,6 @@ footer a:visited{
     text-align: center;
     font-size: larger;
 }
-
-
-
-
-@media screen and (min-width: 769px) and (max-width: 1000px){
-    .navigate{
-        grid-column: 1/ span 4;
-    }
-     .side{
-        grid-row: 3 / span 1;
-    }
-    main{
-        grid-row: 3;
-        grid-column: 2 / span 3;
-    }
-    .ads{
-        grid-column: 1 / span 1;
-        grid-row: 4;
-    }
-    body{
-        grid-template-columns: 20% auto 20%;
-        grid-template-rows: 8vh auto auto auto ;
-
-    }
-    footer{
-        grid-template-rows: auto auto 10%;
-    }
-    .ads{
-        height: auto;
-        overflow: hidden;
-    }
-    .ads img:nth-child(even){
-        display: none;
-    }
-    footer .na, .social_buttons{
-        grid-column: 1 / span 2;
-    }
-    footer .text, .contact{
-        grid-column: 3 / span 2;
-    }
-    .title{
-        font-size: smaller;
-    }
-}
-
-@media screen and (max-width: 768px){
-    body{
-        grid-template-columns: 100%;
-        grid-template-rows: auto 10vh repeat(4, auto) ;
-
-    }
-    .navigate{
-        grid-column: 1;
-        grid-row: 2;
-    }
-    main{
-        grid-row: 3;
-        grid-column: 1 / span 1;
-    }
-    .side{
-        grid-column: 1;
-        grid-row: 4 ;
-        margin: 0;
-        padding: 0;
-    }
-    .ads{
-        grid-row: 5;
-        grid-column: 1 / span 1;
-        overflow: hidden;
-    }
-    .ads img:nth-child(even){
-        display: none;
-    }
-    .ads img{
-        width: 45%;
-    }
-    footer{
-        justify-items: center;
-        grid-row: 6;
-        grid-column: 1 / span 1;
-    }
-    footer .na, .social_buttons{
-        grid-column: 1 / span 4;
-    }
-    footer .text, .contact{
-        grid-column: 1 / span 4;
-    }
-    .contact{
-        text-align: center;
-    }
-}
-
-
-
-
 /*    4 практика */
 .inputLabel{
     display: flex;
@@ -308,6 +164,15 @@ li>.items{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+.w100{
+    width: 100%;
+}
+.w66{
+    width: 65%;
+}
+.w33{
+    width: 33%;
 }
 .cont{
     justify-content: center;
@@ -394,7 +259,6 @@ li>.items{
 }
 @media (max-width: 700px) {
     .top-nav{
-        
         position: absolute;  
         width: 100%;
     }
@@ -433,49 +297,14 @@ li>.items{
         background-color:antiquewhite;    
     }
 }
-
-.social_buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 20px;
-    bottom: 20px;
-}
-
-.social_button img {
-    width: 30px;
-    position: relative;
-    z-index: 3;
-}
-
-.social_button {
-    margin: 0 10px;
-    position: relative;
-    overflow: hidden;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    width: 40px;
-}
-
-.social_button::after {
-    content: "";
-    background: linear-gradient(#cabd36, #db691d);
-    position: absolute;
-    z-index: 1;
-    display: block;
-    transition: all 0.35s;
-    left: 0;
-    right: 0;
-    top: -100%;
-    bottom: 100%;
-}
-
-.social_button:hover::after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    transition: all 0.35s;
+@media screen and (max-width: 900px) {
+    .w33{
+        width: 100%;
+    }
+    .w66{
+        width: 100%;
+    }
+    .w100{
+        width: 100%;
+    }
 }
