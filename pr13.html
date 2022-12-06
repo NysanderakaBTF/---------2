@@ -89,7 +89,39 @@
             
         </div>
         <!--quote about chocolate-->
+        <script>
+            //1
+            function task1(ev){
+                let tar = ev.target;
         
+                let nodes = [];
+                let element = ev.target;
+                nodes.push(element);
+                let ch = false;
+                while(element.parentNode) {
+                    nodes.unshift(element.parentNode);
+                    element = element.parentNode;
+                    if(element.id=="contents"){
+                        ch = true;
+                        break;
+                    }
+                }
+        
+        
+        
+                if(tar.parentNode.id=="contents" || ch){
+                    let ans = confirm("Do you want to continue?");
+                    if(ans==false)
+                        ev.preventDefault();
+                        return false;
+                }
+                return false
+            }
+            let aas = document.querySelectorAll("a");
+            aas.forEach(elem => elem.addEventListener('click',task1));
+        
+        
+        </script>
 
     <main>
         <div class="t1">
@@ -101,26 +133,6 @@
                               
             </div>
         </div>
-        <style>
-            .images{
-                width: 400px;
-                height: 300px;
-                background-size: cover;
-            }
-            .t1{
-                display: flex;   width: 100%;  flex-direction: column; margin: 0 auto;
-                 align-items: center;
-            }
-            t1 h3{ width: 100%; }
-            .imglist{
-                display: flex;
-                flex-direction: row;
-                max-height: 100px;
-                justify-content: space-between;
-                width: 100%;
-            }
-            .imglist img{height: 100px; padding: 10px;}
-        </style>
         <script>
 
             //2
@@ -144,51 +156,275 @@
             mmmm.forEach(elem => elem.addEventListener('click',disp));
         </script>
 
+        <ul class="fil" id="list">
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 5</li>
+            <li>item 6</li>
+            <li>item 7</li>
+            <li>item 8</li>
+            <li>item 9</li>
+            <li>item 10</li>
+            <li>item 11</li>
+            <li>item 12</li>
+            <li>item 13</li> 
+            <li>item 14</li>
+            <li>item 15</li>
+            <li>item 16</li>
+            <li>item 17</li>
+            <li>item 18</li>
+            <li>item 19</li>
+            <li>item 20</li>
+        </ul>
+
+        <div class="container-slide">
+            <div class="line">
+                <div class="point"></div>
+            </div>
+        </div>
+
+        <h3>cart</h3>
+        <div class="cart">
+            
+        </div>
+
+        <div class="total">
+            <span>Total: </span>
+            <span id="sum">0</span>
+        </div>
+
+        <div class="store">
+            <img id="1" class="ite" src="/images/11.jpg" draggable="true" data-amount="3">
+            <img id="2" class="ite" src="/images/12.jpg" draggable="true" data-amount="4">
+            <img id="3" class="ite" src="/images/14.jpg" draggable="true" data-amount="50">
+            <img id="4" class="ite" src="/images/15.jpg" draggable="true" data-amount="4">
+            <img id="5" class="ite" src="/images/20.jpg" draggable="true" data-amount="56">
+            <img id="6" class="ite" src="/images/13.jpg" draggable="true" data-amount="2">
+        </div>
+
+
+        <div class="weatre" style="margin-top: 100px;">
+            <img src="/images/moon-svgrepo-com.svg" class="sv">
+            <img src="/images/cloud-svgrepo-com.svg" class="cloud" style="width: 200px; z-index: 1000; position: absolute;">
+        </div>
+        
+
+
+
+
+
+        <script>
+            //3
+            let vulist = document.getElementById("list");
+            let arraqq = document.querySelectorAll("ul.fil li");
+
+
+            arraqq.forEach(element => {
+                element.addEventListener('click',(ev)=>{
+                    ev.preventDefault();
+                    let tar = ev.target;
+                    
+                    console.log(tar.className);
+                    if(ev.ctrlKey || ev.metaKey){
+                        if(tar.className == "selected"){
+                            tar.classList.remove("selected");
+                        }else{
+                            tar.classList.add("selected");
+                        }
+                    }else{
+                        for (let i = 0; i<arraqq.length; i++) {
+                            arraqq[i].classList.remove("selected");
+                        }
+                        tar.classList.add("selected");
+                    }
+                });
+            });
+
+
+
+            //4
+
+            let line = document.querySelector('.line');
+            let point = document.querySelector('.point');
+
+            point.ondragstart = function() {
+                return false;
+            };
+
+            point.onmousedown = function (ev){
+                ev.preventDefault();
+
+                let leftofff = ev.clientX - point.getBoundingClientRect().left;
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+
+                function onMouseMove(ev){
+                    let newleftoff = ev.clientX - leftofff - line.getBoundingClientRect().left;
+                    let right = line.offsetWidth - point.offsetWidth;
+
+                    if(newleftoff < 0){
+                        newleftoff = 0;
+                    }
+                    if(newleftoff > right){
+                        newleftoff  = right;
+                    }
+                    point.style.left = newleftoff + 'px';
+                }
+                function onMouseUp(ev){
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+
+
+            }
+            
+
+            //5
+            let cart = document.querySelector(".cart");
+            let store = document.querySelector(".store");
+            cart.ondragover = allowDrop;
+            store.ondragover = allowDrop;
+            
+            function allowDrop(e){
+                e.preventDefault();
+            }
+            let items = document.querySelectorAll(".ite");
+            function drag (e){
+                e.dataTransfer.setData('id',e.target.id);
+            }
+            items.forEach(elemet => elemet.ondragstart = drag);
+            cart.ondrop = drop;
+            store.ondrop = dropback;
+
+            function drop(e){
+                let itemmm = e.dataTransfer.getData('id');
+                e.target.append(document.getElementById(itemmm));
+                let sum = document.getElementById("sum");
+                let ss = parseInt(sum.innerText);
+                console.log(ss);
+                console.log(document.getElementById(itemmm).dataset.amount);
+                ss = parseInt(ss) + parseInt( document.getElementById(itemmm).dataset.amount);
+                console.log(ss);
+                sum.innerHTML = ss;
+            }
+
+            function dropback(e){
+                let itemmm = e.dataTransfer.getData('id');
+                e.target.append(document.getElementById(itemmm));
+                let sum = document.getElementById("sum");
+                let ss = parseInt(sum.innerText);
+                console.log(ss);
+                console.log(document.getElementById(itemmm).dataset.amount);
+                ss = parseInt(ss) - parseInt( document.getElementById(itemmm).dataset.amount);
+                console.log(ss);
+                sum.innerHTML = ss;
+            }
+
+            //6
+            let cloud = document.querySelector(".cloud");
+            let sun = document.querySelector(".sv");
+            let wat = 0;
+
+            setInterval(cloudmove, 10);
+            let cnt = 0;
+            function cloudmove(){
+                let to = window.innerWidth - cloud.offsetWidth;
+                let cln = cloud.offsetWidth;
+
+                let a = parseInt(cloud.style.left);
+                console.log(a);
+                if(a < to){
+                    cloud.style.left =  a + 1 + 'px';
+                }else{
+                    cloud.style.left = 0+'px';
+                    if (wat == 0){
+                        sun.style.opacity = 0;
+                        sun.remove();
+                        sun = document.createElement('img');
+                        sun.src ="/images/sun-svgrepo-com.svg";
+                        sun.className = "sv";
+                        document.querySelector(".weatre").append(sun);
+                        wat = 1;
+                    }else{
+                        sun.style.opacity = 0;
+                        sun.remove();
+                        sun = document.createElement('img');
+                        sun.src ="/images/moon-svgrepo-com.svg";
+                        sun.className = "sv";
+                        document.querySelector(".weatre").append(sun);
+                        wat = 0;
+                    }
+                }
+            }
+          
+
+            
+
+
+
+        </script>
+
+        
+
 
     </main>
 </body>
 
 </html>
 
-<script>
-    //1
-    function task1(ev){
-        let tar = ev.target;
 
-        let nodes = [];
-        let element = ev.target;
-        nodes.push(element);
-        let ch = false;
-        while(element.parentNode) {
-            nodes.unshift(element.parentNode);
-            element = element.parentNode;
-            if(element.id=="contents"){
-                ch = true;
-                break;
-            }
-        }
-
-
-
-        if(tar.parentNode.id=="contents" || ch){
-            let ans = confirm("Do you want to continue?");
-            if(ans==false)
-                ev.preventDefault();
-                return false;
-        }
-        return false
-    }
-    let aas = document.querySelectorAll("a");
-    aas.forEach(elem => elem.addEventListener('click',task1));
-
-    //2
-
-
-
-
-</script>
 
 <style>
+    .sv{
+        width: 100px;
+        transition: opacity 0.5s;
+
+    }
+
+    .weatre{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart{
+        width: 100%;
+        height: 200px;
+        display: flex;
+    }
+    .cart img{
+        width: 100px;
+        height: 100px;
+    }
+    .store{
+        display: flex;
+    }
+    .store img{
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .selected{
+        color: whitesmoke;
+        background-color: darkslategray;
+    }
+    .fil{
+        list-style: none;
+        width: 50%;
+        column-count: 2;
+    }
+    .fil li{
+        border-width: 2px;
+        border-color: crimson;
+        border-style: dotted;
+        width: 100%;
+    }
+
 
     #circle {
         width: 300px;
@@ -201,4 +437,46 @@
         position: absolute;
     }
 
+
+    .images{
+                width: 400px;
+                height: 300px;
+                background-size: cover;
+            }
+            .t1{
+                display: flex;   width: 100%;  flex-direction: column; margin: 0 auto;
+                 align-items: center;
+            }
+            t1 h3{ width: 100%; }
+            .imglist{
+                display: flex;
+                flex-direction: row;
+                max-height: 100px;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .imglist img{height: 100px; padding: 10px;}
+
+            .container-slide {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .line {
+            width: 70%;
+            height: 10px;
+            background-color: #53956e;
+            }
+
+            .point {
+            height: 20px;
+            width: 10px;
+            background-color: #30369f;
+            position: relative;
+            top: -5px;
+            left: 10px;
+            }
 </style>
